@@ -51,7 +51,7 @@ JavaScriptでは、前のノードから渡されたメッセージに対して�
 https://github.com/ へアクセスし、GitHubアカウントでログインします。
 GitHubページの右上にある「＋」プルダウンから「New repository」を選択します。
 
-![New repository](/images/img01.png | width=600)
+![]("/images/img01.png" "width=600")
 
 ここで作成するリポジトリは、ノードを開発するためのプロジェクトとして存在し、その後パッケージ化されてnpmへ公開されるものになります。（公開するかどうかはもちろん任意です）
 
