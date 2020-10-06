@@ -2,8 +2,8 @@
 
 ## はじめに
 本ハンズオンは、Node-RED公式サイトを元に、手順をまとめ直したものになります。ここでは、初めてノード開発を行う方向けに手順をシンプルにしています。
-オリジナルの情報は以下を御覧ください。
-https://github.com/taijihagino/node-red-making-node-handson.git
+オリジナルの情報は [Node-RED公式サイト ノードの開発](https://nodered.jp/docs/creating-nodes/) を御覧ください。
+
 
 ## 全体の流れ
 ノード開発の主な流れは以下の通りです。
@@ -52,6 +52,20 @@ https://github.com/ へアクセスし、GitHubアカウントでログインし
 GitHubページの右上にある「＋」プルダウンから「New repository」を選択します。
 
 ![New repository](/images/img01.png)
+
+ここで作成するリポジトリは、ノードを開発するためのプロジェクトとして存在し、その後パッケージ化されてnpmへ公開されるものになります。（公開するかどうかはもちろん任意です）
+
+ですので、リポジトリ名はノード開発の命名規則に沿ったものにしましょう。
+
+ルールでは「node-red-contrib-<ノードのグループを表す名称>ですので、これに従います。以下の画像ので例では「node-red-contrib-taiponrock」にしています。
+リポジトリ名を指定したら、リポジトリ公開範囲をPublicにし、READMEファイルのチェックをONにして、ライセンスを指定します。例ではApache License 2.0ライセンスで作成します。
+すべて設定したら「Create repository」ボタンをクリックしてリポジトリを作成してください。
+
+![Create repository](/images/img02.png)
+
+無事リポジトリが作成されました。
+
+![Created repository](/images/img03.png)
 
 
 ### 1-2. リポジトリのClone
