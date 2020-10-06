@@ -51,7 +51,7 @@ JavaScriptでは、前のノードから渡されたメッセージに対して�
 https://github.com/ へアクセスし、GitHubアカウントでログインします。
 GitHubページの右上にある「＋」プルダウンから「New repository」を選択します。
 
-![](./images/img01.png "width=100")
+![](./images/img01.png)
 
 ここで作成するリポジトリは、ノードを開発するためのプロジェクトとして存在し、その後パッケージ化されてnpmへ公開されるものになります。（公開するかどうかはもちろん任意です）
 
@@ -61,11 +61,11 @@ GitHubページの右上にある「＋」プルダウンから「New repository
 リポジトリ名を指定したら、リポジトリ公開範囲をPublicにし、READMEファイルのチェックをONにして、ライセンスを指定します。例ではApache License 2.0ライセンスで作成します。
 すべて設定したら「Create repository」ボタンをクリックしてリポジトリを作成してください。
 
-![Create repository](/images/img02.png)
+![](./images/img02.png)
 
 無事リポジトリが作成されました。
 
-![Created repository](/images/img03.png)
+![](./images/img03.png)
 
 
 ### 1-2. リポジトリのClone
