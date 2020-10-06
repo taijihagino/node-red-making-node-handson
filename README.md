@@ -67,7 +67,8 @@ GitHubページの右上にある「＋」プルダウンから「New repository
 リポジトリ名を指定したら、リポジトリ公開範囲をPublicにし、READMEファイルのチェックをONにして、ライセンスを指定します。例ではApache License 2.0ライセンスで作成します。
 すべて設定したら「Create repository」ボタンをクリックしてリポジトリを作成してください。
 
-![](./images/img02.png)
+<img src="./images/img02.png" width="400"/>
+
 
 無事リポジトリが作成されました。
 
@@ -78,7 +79,8 @@ GitHubページの右上にある「＋」プルダウンから「New repository
 
 リポジトリのURLをクリップボードへコピーします。緑色の「Code」のプルダウンをクリックして、クリップボードボタンをクリックしてURLをコピーします。
 
-![](./images/img04.png)
+<img src="./images/img04.png" width="300"/>
+
 
 リポジトリをローカルに取得(git clone)
 Bashが実行できるコマンドラインインターフェース（ターミナルなど）からリポジトリをクローンする（コピーする）作業ディレクトリへ移動します。ここでは、ユーザーディレクトリの下へworkディレクトリを作成し、そこへ移動しました。
@@ -242,7 +244,7 @@ $ npm install <ノードモジュールへのパス>
 
 起動後（再起動後）のパレットのfunctionカテゴリに **lower case** というノードが追加されていることが確認できるはずです。
 
-<img src="./images/img16.png" width="300"/>
+<img src="./images/img16.png" width="250"/>
 
 
 ## 4. ノード名の変更
