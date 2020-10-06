@@ -67,10 +67,103 @@ GitHubページの右上にある「＋」プルダウンから「New repository
 
 ![](./images/img03.png)
 
-
 ### 1-2. リポジトリのClone
+では、次にローカルの開発環境に、先程作成したリポジトリをクローンしましょう。
+
+リポジトリのURLをクリップボードへコピーします。緑色の「Code」のプルダウンをクリックして、クリップボードボタンをクリックしてURLをコピーします。
+
+![](./images/img04.png)
+
+リポジトリをローカルに取得(git clone)
+Bashが実行できるコマンドラインインターフェース（ターミナルなど）からリポジトリをクローンする（コピーする）作業ディレクトリへ移動します。ここでは、ユーザーディレクトリの下へworkディレクトリを作成し、そこへ移動しました。
+
+```
+$ mkdir work
+$ cd work
+```
+
+![](./images/img05.png)
+
+先程作成したリポジトリのURLで```git clone```コマンドを実行してください。クローンが終了したら、```ls```コマンドで正常にクローンされていることを確認しましょう。
+
+```
+git clone https://github.com/<GitHubアカウント>/node-red-contrib-<指定した任意の文字列>.git
+```
+
+![](./images/img06.png)
+
+
 ### 1-3. Javascriptの作成
+ここからは、実際のノードの処理を作成します。と、言ってもすでにコードは用意してありますのでご安心ください。
+まずは、クローンしたリポジトリのディレクトリの中へ移動します。
+
+```
+cd node-red-contrib-<指定した任意の文字列>
+```
+
+![](./images/img07.png)
+
+こちらのディレクトリ配下に、以下のコードの通り **node.js** というファイル名で、ファイルを作成します。
+```
+module.exports = function(RED) {
+    function LowerCaseNode(config) {
+        RED.nodes.createNode(this,config);
+        var node = this;
+        node.on('input', function(msg) {
+            msg.payload = msg.payload.toLowerCase();
+            node.send(msg);
+        });
+    }
+    RED.nodes.registerType("lower-case",LowerCaseNode);
+}
+```
+
+![](./images/img08.png)
+
+node.jsが作成されました。
+
+![](./images/img09.png)
+
+ここではviを使って作成していますが、もちろん任意のエディターを使って構いません。
+
 ### 1-4. HTMLの作成
+続いて、同じディレクトリ配下に、以下のコードの通り **node.html** というファイル名で、ファイルを作成します。
+
+```
+<script type="text/javascript">
+    RED.nodes.registerType('lower-case',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"lower-case";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="lower-case">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="lower-case">
+    <p>A simple node that converts the message payloads into all lower-case characters</p>
+</script>
+```
+
+![](./images/img10.png)
+
+node.htmlが作成されました。
+
+![](./images/img11.png)
+
 ## 2. パッケージ化
 ## 3. ノードのインストール
 ## 4. ノード名の変更
