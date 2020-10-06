@@ -4,6 +4,11 @@
 本ハンズオンは、Node-RED公式サイトを元に、手順をまとめ直したものになります。ここでは、初めてノード開発を行う方向けに手順をシンプルにしています。
 オリジナルの情報は [Node-RED公式サイト ノードの開発](https://nodered.jp/docs/creating-nodes/) を御覧ください。
 
+## 事前準備
+本ハンズオンを実施するに当たり、以下を事前準備してください。
+* [GitHub](https://gist.github.com/) アカウント作成
+* [npm](https://www.npmjs.com/) アカウント作成
+* [Node-RED](https://nodered.jp/) インストール (ローカル環境へのスタンドアロン)
 
 ## 全体の流れ
 ノード開発の主な流れは以下の通りです。
@@ -165,6 +170,57 @@ node.htmlが作成されました。
 ![](./images/img11.png)
 
 ## 2. パッケージ化
+ノードの処理(JavaScript)と外観(HTML)の作成が終えたので、今度はそれをパッケージ化していきます。Node-REDはそのフローエディタ自身がnode.jsアプリであり、そこの上で動く各ノードもまたnode.jsアプリということになります。つまり、ここでのパッケージ化というのは **npm** を使った処理のことです。
+
+npmについてはここでは詳しく説明しません。詳細を知りたい方は [npm公式サイト](https://www.npmjs.com/) へアクセスいただくか、各種技術記事などをご参照ください。
+
+### 2-1. npmの初期化処理
+先程、node.jsやnode.htmlを作成したディレクトリと同じ場所で、以下の通りコマンドを実行します。
+
+```
+npm init
+```
+
+npm initを実行すると、対話式に各種パラメーターを聞かれますので、いかに従い入力して先に進んでください。
+
+| 項目 | 設定値 |
+----|---- 
+| name | デフォルト値 |
+| version | デフォルト値 |
+| description | ノードの説明 (ライブラリやインストール時の説明として表示される) |
+| entry point | デフォルト値 |
+| test command | ※入力不要 |
+| git repository | デフォルト値 |
+| keywords | インストール時の検索等で用いるキーワードをカンマ区切りで指定。今回はライブラリ登録予定なので「node-red」を忘れずに入力すること。 |
+| author | npmアカウント名 |
+| license | Apache-2.0 (任意のものでOK) |
+
+![](./images/img12.png)
+
+最後まで対話を終了するとnpm initコマンドにより **package.json** が生成されます。
+
+![](./images/img13.png)
+
+### 2-2. package.jsonの編集
+package.jsonには、手動でNode-RED固有の設定を追加する必要があります。package.jsonファイルをテキストエディタで開き、以下の様に"name"や"version"と並列して ```"node-red":{"nodes":"{"lower-case":"node.js"}},``` の部分を追加します。
+
+```
+{
+  "name": "node-red-contrib-zundokokiyoshi",
+  "version": "1.0.0",
+  (省略)
+  "node-red" : {
+    "nodes": {
+      "lower-case": "node.js"
+    }
+  },
+  (省略)
+}
+```
+
+![](./images/img14.png)
+
+
 ## 3. ノードのインストール
 ## 4. ノード名の変更
 ## 5. ノード処理の変更
