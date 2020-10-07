@@ -9,6 +9,7 @@
 * [GitHub](https://gist.github.com/) アカウント作成
 * [npm](https://www.npmjs.com/) アカウント作成
 * [Node-RED](https://nodered.jp/) インストール (ローカル環境へのスタンドアロン)
+* [IBM Cloud](https://ibm.biz/BdqQjC) アカウント作成
 
 ## 全体の流れ
 ノード開発の主な流れは以下の通りです。
@@ -474,30 +475,55 @@ publishが正常に終了すると https://www.npmjs.com/package/node-red-contri
 
 <img src="./images/img40.png" />
 
-15分～1時間ほど待つと、Node-RED Libraryのクローラが新規にnpmに登録されたノード見つけ出し、Node-RED Libraryにも登録されます。同時に他の全てのNode-REDのフローエディタからノードをインストールできるようになります。
+### 5-4. Node-RED Libraryへの登録
+Node-RED Libraryの[Adding a node](https://flows.nodered.org/add/node)より、作成したノードを登録します。
 
-### 5-4. Node-RED Libraryに登録されない場合の対処方法
-Node-RED Libraryに自作ノードが登録されない場合は、以下の(1)～(4)を試してみてください。
-
-1) ノード構成ファイルの存在確認
-**README.md** の内容が十分か？ **package.json** のkeywordsにnode-redが登録されているか？ **LICENSE** ファイルが存在するか？ などを確認してください。
-
-2) npm publishを再実行
-Node-RED Libraryのクローラが正しく動作せず、Node-RED Libraryに反映されないことがあります。その際は、package.jsonのバージョンを上げて再度npm publishを実行して上手く登録できるか試してみてください。
-
-3) libraries.ioに問い合わせ
-Node-RED Libraryのクローラは、内部でhttps://libraries.io というライブラリ登録サイトを参照しています。そのため、本サイトに自作ノードが登録されていないと、Node-RED Libraryに登録されません。
+Add your node to the Flow Libraryに、作成したノードの名称を入力して **add node** ボタンをクリックします。
 
 <img src="./images/img41.png" />
 
-https://libraries.io へアクセスし、自作ノード名で検索しても結果が出ない場合は、[libraries.ioのGitHub](https://github.com/librariesio/libraries.io/issues/new)からissueを上げるか、support@libraries.io (2020/10時点)へ問い合わせをしてみてください。
+登録が完了すると、作成したノードがライブラリーへ追加されたことが確認できます。
 
 <img src="./images/img42.png" />
+
+Node-RED Libraryにて登録作業を行ってから、実際にNode-REDフローエディター上で検索にHITするようになるまで15分程度かかりますのでご注意ください。
 
 ## 6. 公開したノードの削除
 公開したノードの削除には注意が必要です。現在(2020/10時点)、[npmのパッケージのunpublishポリシー](https://www.npmjs.com/policies/unpublish)によると、unpublish期限は **公開24時間以内から72時間以内** である。また、72時間以上でも **ダウンロード数300未満** など特定条件を満たす影響の少ないパッケージならunpublish可能としている。
 
 こちらの情報は随時更新されることが想定されるので、最新情報はnpmの公式サイトを適宜参照してください。
 
-## 7. 公開したノードのインポート
-※ 近日更新予定
+## 7. 公開したノードのインストール
+ここの章は、「5-4. Node-RED Libraryへの登録」の作業後、15分以上経ってから実施することをおすすめします。
+
+ローカル環境のNode-REDでは自作ノードをそのまま使えるように反映させました。また、公開用にnpmへpublishして、Node-RED Libraryにもノード登録を行いました。これで、だれでもこのノードを使うことができるようになったはずです。
+
+ここでは、試しにIBM CloudのNode-REDから、今回作成したノードが問題なくインストールして使えるかを確認していきましょう。
+
+IBM Cloudのアカウントが必要になります。お持ちでない方は[こちら](https://ibm.biz/BdqQjC)から作成して下さい。
+
+IBM Cloudにログインし、Node-REDサービスを作成してNode-REDフローエディタを起動します。フローエディターのパレットの管理を開きます。
+
+<img src="./images/img43.png" width="250" />
+
+Installタブを選択し、自分で作成したノード名の一部を入力して検索します。検索結果で自作したノードが表示されれば公開されインストール対象になっているということです。Installボタンをクリックしてインストールしましょう。
+
+※ ここで検索結果に表示されない場合、ノード登録からまだ時間が短すぎる可能性があります。30分〜1時間後に再度試してみてください。それでも検索にHITしない場合は何かしらの原因があると思われますので、これまでの手順を見直して再度実施してみてください。
+
+<img src="./images/img44.png" />
+
+パレットに自作したノードが、自分で設定したカテゴリーで表示されていることを確認します。
+
+<img src="./images/img45.png" width="200" />
+
+以下の図のようにフローを作成してInjectノードを実行します。例は、Node-REDフローエディターを初回起動した際にデフォルトで用意されている **Hello Node-RED!** のフローの間に、自作ノードを挟んでみています。
+
+<img src="./images/img46.png" />
+
+Injectノード実行後、デバッグウィンドウに結果が表示されていることを確認します。
+
+<img src="./images/img47.png" width="300"/>
+
+
+## まとめ
+おつかれさまでした。ノードを自作すると言っても、思ったほど難しくはなかったのではないでしょうか。この手順をベースに、処理内容の作成や外観アレンジをしていただければ、既存に無い自分だけのお役立ちノードを公開して世界中の開発者へ使ってもらうことができますね！
