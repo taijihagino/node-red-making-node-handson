@@ -411,36 +411,56 @@ README.mdファイルは十分な情報が記載されているかを、クロ�
 渡すパラメーターの文字列をすべて強制的に「Taiponrock」へ変換したい場合に使用します。自己顕示欲や承認欲求を満たすためだけの自己満足として使用されます。自身の精神衛生上を考慮し、使用頻度には十分ご注意ください。
 ```
 
+編集したらREADME.mdは保存して閉じておきます。
+
 ### 5-2. ファイルのアップロード
-**node.js node.html package.json README.md LICENSE** の5つのファイルがあることを確認し、GitHub上のリポジトリへソースコードを置きます。
+**node.js node.html package.json README.md LICENSE** の5つのファイルがあることを確認します。（package.lock.jsonが含まれていても問題ありません）
 
-ソースコードをアップロードするには、以下のコマンドを実行します。
+<img src="./images/img34.png" />
 
-cd ~/Desktop/node-red-contrib-<任意の名前>
-git add -A
-git commit -m "The first commit"
+これらのファイルをGitHub上のリポジトリへアップロードします。
+これまでの作業は、クローンしたリポジトリのディレクトリで行っているはずですが、もし別の場所へいる場合は当該リポジトリのディレクトリへ移動します。
+その上で以下のコマンドを実行しましょう。
+
+```
+git add .
+git commit -m "Node has been published"
 git push
+```
 
-※git commitでメールアドレスとユーザ名を求められた場合は、以下のコマンドを実行してください。
+<img src="./images/img35.png" />
 
+
+git commitでメールアドレスとユーザ名を求められた場合は、自分のGitのユーザー名とメールアドレスを設定します。以下のコマンドを実行することで環境変数へ設定しておくことができます。
+
+```
 git config --global user.email "<メールアドレス>"
 git config --global user.name "<ユーザ名>"
+```
 
-※git pushでGitHubへのログインを求められた場合は、GitHubアカウントのユーザ名とパスワードを入力してください。
+git pushでGitHubへのログインを求められた場合は、GitHubアカウントのユーザ名とパスワードを入力します。
 
-正しく操作が行われると、GitHub上のリポジトリにファイルが登場します。
+pushが正常に終了すると、GitHub上のリポジトリで対象のファイルがアップロードされていることが確認できます。
+
+<img src="./images/img36.png" />
 
 ### 5-3. npmへのノード公開 (npm publish)
-最後に、ノードをモジュールとして公開するために、npmコマンドを用いてアップロードします。
+では次に、ノードをモジュールとして公開します。npmコマンドを用いてファイル一式をアップロードします。ここでも同じく、クローンしたリポジトリのディレクトリで作業を行います。
 
-cd ~/Desktop/node-red-contrib-<任意の名前>
+```
 npm adduser
 npm publish
+```
 
-※npm adduserにてユーザ名、パスワード、メールアドレスを入力した後、長時間コマンドが終了しない場合は、Ctrl+cでコマンドを終了してください(ユーザ登録は正しく行われるようです)。
-※npm publishを実行するには、前回よりバージョン番号を上げる必要があります。そのため、2回目以降のnpm publishを実行する際は、事前にpachage.jsonを編集してバージョン番号を上げてください。
+<img src="./images/img37.png" />
 
-正しく登録できると、https://www.npmjs.com/package/node-red-contrib-<任意の名前>というURLにて公開されます。
+```npm publish``` を実行する際にバージョンの確認が行われます。2回目以降 ```npm publish`` を実行する際にはバージョンが上がっている必要があるので、pachage.jsonを編集してバージョン番号を上げることを忘れないでください。
+
+publishが正常に終了すると https://www.npmjs.com/package/node-red-contrib-<任意の文字列> というURLにて公開されます。
+
+例だと https://www.npmjs.com/package/node-red-contrib-taiponrock になります。
+
+<img src="./images/img38.png" />
 
 15分～1時間ほど待つと、Node-RED Libraryのクローラが新規にnpmに登録されたノード見つけ出し、Node-RED Libraryにも登録されます。同時に他の全てのNode-REDのフローエディタからノードをインストールできるようになります。
 
@@ -453,9 +473,22 @@ Node-RED Libraryに自作ノードが登録されない場合は、以下の(1)�
 (2) 再度npm publishを実行
 Node-RED Libraryのクローラが正しく動作せず、Node-RED Libraryに反映されないことがあります。その際は、package.jsonのバージョンを上げて再度npm publishを実行して上手く登録できるか試してみてください。
 
-(3) libraries.ioに登録依頼を提出
-Node-RED Libraryのクローラは、内部でhttps://libraries.io というライブラリ登録サイトを参照しています。そのため、本サイトに自作ノードが登録されていないと、Node-RED Libraryに登録されません。以下のスクリーンショットの様に、https://libraries.io へアクセスし、自作ノード名で検索しても結果が出ない場合は、「report it as a bug」をクリックします。
+(3) libraries.ioに問い合わせ
+Node-RED Libraryのクローラは、内部でhttps://libraries.io というライブラリ登録サイトを参照しています。そのため、本サイトに自作ノードが登録されていないと、Node-RED Libraryに登録されません。
 
+<img src="./images/img39.png" />
+
+https://libraries.io へアクセスし、自作ノード名で検索しても結果が出ない場合は、support@libraries.io (2020/10時点)へ問い合わせをしてみてください。
+
+<img src="./images/img40.png" />
 
 ## 6. 公開したノードの削除
+公開したノードの削除には注意が必要です。現在(2020/10時点)、[npmのパッケージのunpublishポリシー](https://www.npmjs.com/policies/unpublish)によると、unpublish期限は **公開24時間以内から72時間以内** である。また、72時間以上でも **ダウンロード数300未満** など特定条件を満たす影響の少ないパッケージならunpublish可能としている。
+
+こちらの情報は随時更新されることが想定されるので、最新情報はnpmの公式サイトを適宜参照してください。
+
 ## 7. 公開したノードのインポート
+今回開発したノードが、他の環境でも正しく動作するか確認していきましょう。
+お好きな環境を利用して頂いて良いですが、ここではIBM Cloud上のNode-REDで確認していきます。
+
+
