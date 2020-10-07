@@ -67,7 +67,7 @@ GitHubページの右上にある「＋」プルダウンから「New repository
 リポジトリ名を指定したら、リポジトリ公開範囲をPublicにし、READMEファイルのチェックをONにして、ライセンスを指定します。例ではApache License 2.0ライセンスで作成します。
 すべて設定したら「Create repository」ボタンをクリックしてリポジトリを作成してください。
 
-<img src="./images/img02.png" width="400"/>
+<img src="./images/img02.png" width="600"/>
 
 
 無事リポジトリが作成されました。
@@ -79,7 +79,7 @@ GitHubページの右上にある「＋」プルダウンから「New repository
 
 リポジトリのURLをクリップボードへコピーします。緑色の「Code」のプルダウンをクリックして、クリップボードボタンをクリックしてURLをコピーします。
 
-<img src="./images/img04.png" width="300"/>
+<img src="./images/img04.png" width="500"/>
 
 
 リポジトリをローカルに取得(git clone)
@@ -252,6 +252,7 @@ $ npm install <ノードモジュールへのパス>
 <img src="./images/img17.png" />
 
 作成したフローをデプロイして、Injectノードを実行すると、設定したすべて大文字の文字列がすべて小文字へ変換されてデバッグウィンドウへ出力されたことが確認できます。
+
 <img src="./images/img18.png" width="300"/>
 
 
@@ -325,6 +326,7 @@ node.on('input', function(msg) {
 <img src="./images/img27.png" />
 
 作成したフローをデプロイして、Injectノードを実行すると、先程処理変更で定数として設定した文字列（名前またはニックネーム）が、デバッグウィンドウへ出力されたことが確認できます。
+
 <img src="./images/img28.png" width="300"/>
 
 ### 4-3. ノードアイコン変更
