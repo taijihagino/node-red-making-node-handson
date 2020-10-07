@@ -490,7 +490,7 @@ Node-RED Libraryのクローラは、内部でhttps://libraries.io というラ�
 
 <img src="./images/img41.png" />
 
-https://libraries.io へアクセスし、自作ノード名で検索しても結果が出ない場合は、support@libraries.io (2020/10時点)へ問い合わせをしてみてください。
+https://libraries.io へアクセスし、自作ノード名で検索しても結果が出ない場合は、[libraries.ioのGitHub](https://github.com/librariesio/libraries.io/issues/new)からissueを上げるか、support@libraries.io (2020/10時点)へ問い合わせをしてみてください。
 
 <img src="./images/img42.png" />
 
@@ -500,7 +500,4 @@ https://libraries.io へアクセスし、自作ノード名で検索しても�
 こちらの情報は随時更新されることが想定されるので、最新情報はnpmの公式サイトを適宜参照してください。
 
 ## 7. 公開したノードのインポート
-今回開発したノードが、他の環境でも正しく動作するか確認していきましょう。
-お好きな環境を利用して頂いて良いですが、ここではIBM Cloud上のNode-REDで確認していきます。
-
-
+※ 近日更新予定
