@@ -374,6 +374,18 @@ Node-REDを再起動して、ノード色が変更されていることを確認
 
 <img src="./images/img33.png" />
 
+### 4-5. カテゴリー変更
+ノードが所属するカテゴリーを変更します。現状はサンプルコードをそのまま使っていたので、このノードの所属するカテゴリーは **function** でした。
+
+ここでは、試しに新しく **devdojo** カテゴリを設けて、そこへ所属させたいと思います。node.htmlファイルの中に記述されている"category"要素の値を **function** から **devdojo** へと変更してください。
+
+<img src="./images/img34.png" />
+
+Node-REDを再起動して、所属カテゴリーが変更されていることを確認します。
+
+<img src="./images/img35.png" width="200" />
+
+
 他にも、外観変更についての詳細を知りたい方は[Node-REDの公式サイト](https://nodered.jp/docs/creating-nodes/appearance)をご確認ください。
 
 ## 5. Node-RED Libraryへの公開
@@ -416,7 +428,7 @@ README.mdファイルは十分な情報が記載されているかを、クロ�
 ### 5-2. ファイルのアップロード
 **node.js node.html package.json README.md LICENSE** の5つのファイルがあることを確認します。（package.lock.jsonが含まれていても問題ありません）
 
-<img src="./images/img34.png" />
+<img src="./images/img36.png" />
 
 これらのファイルをGitHub上のリポジトリへアップロードします。
 これまでの作業は、クローンしたリポジトリのディレクトリで行っているはずですが、もし別の場所へいる場合は当該リポジトリのディレクトリへ移動します。
@@ -428,7 +440,7 @@ git commit -m "Node has been published"
 git push
 ```
 
-<img src="./images/img35.png" />
+<img src="./images/img37.png" />
 
 
 git commitでメールアドレスとユーザ名を求められた場合は、自分のGitのユーザー名とメールアドレスを設定します。以下のコマンドを実行することで環境変数へ設定しておくことができます。
@@ -442,7 +454,7 @@ git pushでGitHubへのログインを求められた場合は、GitHubアカウ
 
 pushが正常に終了すると、GitHub上のリポジトリで対象のファイルがアップロードされていることが確認できます。
 
-<img src="./images/img36.png" />
+<img src="./images/img38.png" />
 
 ### 5-3. npmへのノード公開 (npm publish)
 では次に、ノードをモジュールとして公開します。npmコマンドを用いてファイル一式をアップロードします。ここでも同じく、クローンしたリポジトリのディレクトリで作業を行います。
@@ -452,7 +464,7 @@ npm adduser
 npm publish
 ```
 
-<img src="./images/img37.png" />
+<img src="./images/img39.png" />
 
 ```npm publish``` を実行する際にバージョンの確認が行われます。2回目以降 ```npm publish``` を実行する際にはバージョンが上がっている必要があるので、pachage.jsonを編集してバージョン番号を上げることを忘れないでください。
 
@@ -460,7 +472,7 @@ publishが正常に終了すると https://www.npmjs.com/package/node-red-contri
 
 例だと https://www.npmjs.com/package/node-red-contrib-taiponrock になります。
 
-<img src="./images/img38.png" />
+<img src="./images/img40.png" />
 
 15分～1時間ほど待つと、Node-RED Libraryのクローラが新規にnpmに登録されたノード見つけ出し、Node-RED Libraryにも登録されます。同時に他の全てのNode-REDのフローエディタからノードをインストールできるようになります。
 
@@ -476,11 +488,11 @@ Node-RED Libraryのクローラが正しく動作せず、Node-RED Libraryに反
 3) libraries.ioに問い合わせ
 Node-RED Libraryのクローラは、内部でhttps://libraries.io というライブラリ登録サイトを参照しています。そのため、本サイトに自作ノードが登録されていないと、Node-RED Libraryに登録されません。
 
-<img src="./images/img39.png" />
+<img src="./images/img41.png" />
 
 https://libraries.io へアクセスし、自作ノード名で検索しても結果が出ない場合は、support@libraries.io (2020/10時点)へ問い合わせをしてみてください。
 
-<img src="./images/img40.png" />
+<img src="./images/img42.png" />
 
 ## 6. 公開したノードの削除
 公開したノードの削除には注意が必要です。現在(2020/10時点)、[npmのパッケージのunpublishポリシー](https://www.npmjs.com/policies/unpublish)によると、unpublish期限は **公開24時間以内から72時間以内** である。また、72時間以上でも **ダウンロード数300未満** など特定条件を満たす影響の少ないパッケージならunpublish可能としている。
