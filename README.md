@@ -467,13 +467,13 @@ publishが正常に終了すると https://www.npmjs.com/package/node-red-contri
 ### 5-4. Node-RED Libraryに登録されない場合の対処方法
 Node-RED Libraryに自作ノードが登録されない場合は、以下の(1)～(4)を試してみてください。
 
-(1) ノードを構成するファイルが存在するか確認
-「README.mdファイルの内容が十分か」「package.jsonのkeywordsにnode-redが登録されているか」「LICENSEファイルが存在するか」などを確認してください。
+1) ノード構成ファイルの存在確認
+**README.md** の内容が十分か？ **package.json** のkeywordsにnode-redが登録されているか？ **LICENSE** ファイルが存在するか？ などを確認してください。
 
-(2) 再度npm publishを実行
+2) npm publishを再実行
 Node-RED Libraryのクローラが正しく動作せず、Node-RED Libraryに反映されないことがあります。その際は、package.jsonのバージョンを上げて再度npm publishを実行して上手く登録できるか試してみてください。
 
-(3) libraries.ioに問い合わせ
+3) libraries.ioに問い合わせ
 Node-RED Libraryのクローラは、内部でhttps://libraries.io というライブラリ登録サイトを参照しています。そのため、本サイトに自作ノードが登録されていないと、Node-RED Libraryに登録されません。
 
 <img src="./images/img39.png" />
