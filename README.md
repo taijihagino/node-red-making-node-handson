@@ -293,7 +293,7 @@ $ npm install <ノードモジュールへのパス>
 
 Node-REDを再起動すると、正しく名前が変更されていることを確認できます。
 
-<img src="./images/img25.png" width="300"/>
+<img src="./images/img25.png" width="400"/>
 
 ### 4-2. ノード処理の変更
 ノードの処理を実装しているのは主に以下の部分になります。ここで定義している ```msg.payload = msg.payload.toLowerCase();``` の部分を書き換えると、ノードの処理を変更できます。
@@ -454,7 +454,7 @@ npm publish
 
 <img src="./images/img37.png" />
 
-```npm publish``` を実行する際にバージョンの確認が行われます。2回目以降 ```npm publish`` を実行する際にはバージョンが上がっている必要があるので、pachage.jsonを編集してバージョン番号を上げることを忘れないでください。
+```npm publish``` を実行する際にバージョンの確認が行われます。2回目以降 ```npm publish``` を実行する際にはバージョンが上がっている必要があるので、pachage.jsonを編集してバージョン番号を上げることを忘れないでください。
 
 publishが正常に終了すると https://www.npmjs.com/package/node-red-contrib-<任意の文字列> というURLにて公開されます。
 
