@@ -488,10 +488,16 @@ Add your node to the Flow Libraryに、作成したノードの名称を入力�
 
 Node-RED Libraryにて登録作業を行ってから、実際にNode-REDフローエディター上で検索にHITするようになるまで15分程度かかりますのでご注意ください。
 
+バージョンを上げて再度publishを行った場合は、Node-RED Libraryの自分のnodeのページからリフレッシュを行ってください。ノード画面の右側Actionsパネルの下にある **request refresh** をクリックすればOKです。
+
+<img src="./images/img43.png" />
+
 ## 6. 公開したノードの削除
 公開したノードの削除には注意が必要です。現在(2020/10時点)、[npmのパッケージのunpublishポリシー](https://www.npmjs.com/policies/unpublish)によると、unpublish期限は **公開24時間以内から72時間以内** である。また、72時間以上でも **ダウンロード数300未満** など特定条件を満たす影響の少ないパッケージならunpublish可能としている。
 
 こちらの情報は随時更新されることが想定されるので、最新情報はnpmの公式サイトを適宜参照してください。
+
+unpublishを行ったあと、更新時と同じようにNode-RED Libraryの自分のnodeのページからリフレッシュを行ってください。ノード画面の右側Actionsパネルの下にある **request refresh** をクリックすればOKです。
 
 ## 7. 公開したノードのインストール
 ここの章は、「5-4. Node-RED Libraryへの登録」の作業後、15分以上経ってから実施することをおすすめします。
@@ -504,25 +510,25 @@ IBM Cloudのアカウントが必要になります。お持ちでない方は[�
 
 IBM Cloudにログインし、Node-REDサービスを作成してNode-REDフローエディタを起動します。フローエディターのパレットの管理を開きます。
 
-<img src="./images/img43.png" width="250" />
+<img src="./images/img44.png" width="250" />
 
 Installタブを選択し、自分で作成したノード名の一部を入力して検索します。検索結果で自作したノードが表示されれば公開されインストール対象になっているということです。Installボタンをクリックしてインストールしましょう。
 
 ※ ここで検索結果に表示されない場合、ノード登録からまだ時間が短すぎる可能性があります。30分〜1時間後に再度試してみてください。それでも検索にHITしない場合は何かしらの原因があると思われますので、これまでの手順を見直して再度実施してみてください。
 
-<img src="./images/img44.png" />
+<img src="./images/img45.png" />
 
 パレットに自作したノードが、自分で設定したカテゴリーで表示されていることを確認します。
 
-<img src="./images/img45.png" width="200" />
+<img src="./images/img46.png" width="200" />
 
 以下の図のようにフローを作成してInjectノードを実行します。例は、Node-REDフローエディターを初回起動した際にデフォルトで用意されている **Hello Node-RED!** のフローの間に、自作ノードを挟んでみています。
 
-<img src="./images/img46.png" />
+<img src="./images/img47.png" />
 
 Injectノード実行後、デバッグウィンドウに結果が表示されていることを確認します。
 
-<img src="./images/img47.png" width="300"/>
+<img src="./images/img48.png" width="300"/>
 
 
 ## まとめ
