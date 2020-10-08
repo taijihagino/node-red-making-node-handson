@@ -356,7 +356,7 @@ icon: "file.png",
 
 <img src="./images/img29.png" />
 
-好きなアイコンを選んでください。例では **bridge.png** を使います。
+好きなアイコンを選んでください。例では **bridge.svg** を使います。
 
 node.htmlを開いて以下のように編集してください。
 
