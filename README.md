@@ -23,10 +23,10 @@
 8. ノード色変更
 9. Node-RED Libraryへの公開
 10. 公開したノードの削除
-11. 公開したノードのインポート
+11. 公開したノードのインストール
 
 ## ノード開発のポリシー
-新しいノードを作成する時には、いくつかの一般的なルールに従う必要があります。これらはコアノードで採用されているアプローチに準拠しており、一貫したユーザーエクスペリエンズを提供します。
+新しいノードを作成する時には、いくつかの一般的なルールに従う必要があります。これらはコアノードで採用されているアプローチに準拠しており、一貫したユーザーエクスペリエンスを提供します。
 
 ノード作成においては以下のルールに従います:
 
@@ -157,14 +157,14 @@ node.jsが作成されました。
     });
 </script>
 
-<script type="text/x-red" data-template-name="lower-case">
+<script type="text/html" data-template-name="lower-case">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="lower-case">
+<script type="text/html" data-help-name="lower-case">
     <p>A simple node that converts the message payloads into all lower-case characters</p>
 </script>
 ```
@@ -356,7 +356,7 @@ icon: "file.png",
 
 <img src="./images/img29.png" />
 
-好きなアイコンを選んでください。例では **bridge.png** を使います。
+好きなアイコンを選んでください。例では **bridge.svg** を使います。
 
 node.htmlを開いて以下のように編集してください。
 
